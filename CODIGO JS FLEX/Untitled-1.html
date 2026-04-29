@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Estructuras de control</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#0b0f19;
+    font-family:Arial;
+    color:white;
+}
+
+/* CONTENEDOR EN FILA (CLAVE) */
+.container{
+    display:flex;
+    gap:20px;
+    justify-content:center;
+    align-items:stretch;
+    width:95%;
+    max-width:1100px;
+}
+
+/* TARJETAS IGUALES */
+.card{
+    flex:1;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:16px;
+    padding:20px;
+    min-height:260px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+/* TITULOS */
+h2{
+    margin:0 0 10px 0;
+    font-size:18px;
+}
+
+/* COLORES */
+.if h2{ color:#ff6b6b; }
+.for h2{ color:#2ee59d; }
+.switch h2{ color:#6c8cff; }
+
+/* FRUTAS */
+.fruta{
+    display:inline-block;
+    padding:6px 12px;
+    border-radius:999px;
+    font-weight:bold;
+}
+
+.manzana{ background:#ff4d4d; }
+.pera{ background:#2ecc71; }
+.banana{ background:#f1c40f; color:#111; }
+.default{ background:#7f8c8d; }
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+```
+<div class="card if" id="ifResultado">
+    <h2>CONDICIONAL IF</h2>
+</div>
+
+<div class="card for" id="forResultado">
+    <h2>BUCLE FOR</h2>
+</div>
+
+<div class="card switch" id="switchResultado">
+    <h2>SWITCH</h2>
+</div>
+```
+
+</div>
+
+<script>
+let ifDiv = document.getElementById("ifResultado");
+let forDiv = document.getElementById("forResultado");
+let switchDiv = document.getElementById("switchResultado");
+
+// IF
+let temperatura = 25;
+
+if (temperatura > 30) {
+    ifDiv.innerHTML += "<p>🔥 Hace mucho calor</p>";
+} else if (temperatura > 20) {
+    ifDiv.innerHTML += "<p>🌤️ Agradable</p>";
+} else {
+    ifDiv.innerHTML += "<p>❄️ Frío</p>";
+}
+
+// FOR
+for (let i = 0; i < 5; i++) {
+    forDiv.innerHTML += "<p>Contando: " + i + "</p>";
+}
+
+// SWITCH
+let fruta = "Manzana";
+let salida = "";
+
+switch (fruta) {
+    case "Manzana":
+        salida = "<span class='fruta manzana'>🍎 Manzana</span><p>Seleccionada</p>";
+        break;
+    case "Pera":
+        salida = "<span class='fruta pera'>🍐 Pera</span><p>Seleccionada</p>";
+        break;
+    case "Banana":
+        salida = "<span class='fruta banana'>🍌 Banana</span><p>Seleccionada</p>";
+        break;
+    default:
+        salida = "<span class='fruta default'>❓ Otra</span>";
+}
+
+switchDiv.innerHTML += salida;
+
+</script>
+
+</body>
+</html>
